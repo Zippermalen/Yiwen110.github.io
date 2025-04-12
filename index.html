@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人博客</title>
+    <title>葛天昊的写真集</title>
     <style>
         * {
             margin: 0;
@@ -58,25 +58,49 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .post-date {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* 侧边栏 */
-        .sidebar {
+        /* 图片画廊 */
+        .gallery-section {
             background: white;
-            padding: 2rem;
             border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
         /* 响应式布局 */
-        @media (min-width: 768px) {
-            .main-content {
-                display: grid;
-                grid-template-columns: 3fr 1fr;
-                gap: 2rem;
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
             }
         }
 
@@ -95,53 +119,47 @@
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">首页</a></li>
+            <li><a href="#gallery">作品集</a></li>
             <li><a href="#about">关于</a></li>
-            <li><a href="#contact">联系</a></li>
         </ul>
     </nav>
 
     <!-- 主要内容 -->
     <div class="container">
-        <header>
-            <h1>欢迎来到我的博客</h1>
-            <p>分享技术与生活</p>
-        </header>
-
-        <div class="main-content">
-            <!-- 文章列表 -->
-            <div class="posts">
-                <article class="post-card">
-                    <h2>我的第一篇文章</h2>
-                    <p class="post-date">2024年3月1日</p>
-                    <p>这里是文章摘要，点击阅读更多...</p>
-                    <a href="#">阅读全文</a>
-                </article>
-
-                <article class="post-card">
-                    <h2>学习HTML的体会</h2>
-                    <p class="post-date">2024年2月28日</p>
-                    <p>分享学习HTML的经验和技巧...</p>
-                    <a href="#">阅读全文</a>
-                </article>
+        <!-- 画廊部分 -->
+        <section class="gallery-section" id="gallery">
+            <h2>我的写真作品</h2>
+            <div class="gallery-grid">
+                <!-- 替换以下图片路径为你的实际图片 -->
+                <div class="gallery-item">
+                    <img src="images/photo1.jpg" alt="闷骚">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo2.jpg" alt="猥琐">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo3.jpg" alt="变态">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo4.jpg" alt="玉体">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo5.jpg" alt="妖娆">
+                </div>
             </div>
+        </section>
 
-            <!-- 侧边栏 -->
-            <aside class="sidebar">
-                <h3>关于我</h3>
-                <p>我是一名Web开发者，热爱技术分享</p>
-                <h3>分类</h3>
-                <ul>
-                    <li>技术</li>
-                    <li>生活</li>
-                    <li>旅行</li>
-                </ul>
-            </aside>
-        </div>
+        <!-- 示例文章 -->
+        <article class="post-card">
+            <h2>一天300元</h2>
+            <p class="post-date">2024年3月10日</p>
+            <p>有约请联系我.</p>
+        </article>
     </div>
 
     <!-- 页脚 -->
     <footer>
-        <p>&copy; 2024 我的个人博客. All rights reserved.</p>
+        <p>&copy; 2024 伟大的葛天昊. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -1,121 +1,147 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>简单计算器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
     <style>
-        .calculator {
-            width: 320px;
-            margin: 50px auto;
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        #display {
-            width: 100%;
-            height: 60px;
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: right;
-            padding: 10px;
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
         }
 
-        button {
-            padding: 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #fff;
-            transition: background-color 0.3s;
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #333;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
         }
 
-        button:hover {
-            background-color: #ddd;
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
         }
 
-        .operator {
-            background-color: #ff9500;
+        .nav-links a {
             color: white;
+            text-decoration: none;
+            padding: 1rem;
+            transition: color 0.3s;
         }
 
-        .clear {
-            background-color: #ff3b30;
-            color: white;
+        .nav-links a:hover {
+            color: #00bcd4;
         }
 
-        .equals {
-            background-color: #34c759;
+        /* 内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 文章卡片 */
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 侧边栏 */
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* 响应式布局 */
+        @media (min-width: 768px) {
+            .main-content {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: #333;
             color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-        <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">C</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
-            <button class="operator" onclick="appendToDisplay('*')">×</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="equals" onclick="calculate()" style="grid-row: span 2">=</button>
-            <button onclick="appendToDisplay('0')" style="grid-column: span 2">0</button>
-            <button onclick="appendToDisplay('00')">00</button>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <header>
+            <h1>欢迎来到我的博客</h1>
+            <p>分享技术与生活</p>
+        </header>
+
+        <div class="main-content">
+            <!-- 文章列表 -->
+            <div class="posts">
+                <article class="post-card">
+                    <h2>我的第一篇文章</h2>
+                    <p class="post-date">2024年3月1日</p>
+                    <p>这里是文章摘要，点击阅读更多...</p>
+                    <a href="#">阅读全文</a>
+                </article>
+
+                <article class="post-card">
+                    <h2>学习HTML的体会</h2>
+                    <p class="post-date">2024年2月28日</p>
+                    <p>分享学习HTML的经验和技巧...</p>
+                    <a href="#">阅读全文</a>
+                </article>
+            </div>
+
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <h3>关于我</h3>
+                <p>我是一名Web开发者，热爱技术分享</p>
+                <h3>分类</h3>
+                <ul>
+                    <li>技术</li>
+                    <li>生活</li>
+                    <li>旅行</li>
+                </ul>
+            </aside>
         </div>
     </div>
 
-    <script>
-        const display = document.getElementById('display');
-
-        function appendToDisplay(value) {
-            display.value += value;
-        }
-
-        function clearDisplay() {
-            display.value = '';
-        }
-
-        function calculate() {
-            try {
-                display.value = eval(display.value);
-            } catch (error) {
-                display.value = '错误';
-            }
-        }
-
-        // 添加键盘支持
-        document.addEventListener('keydown', (event) => {
-            const key = event.key;
-            if (key >= '0' && key <= '9' || key === '.' || key === '+' || key === '-' || key === '*' || key === '/') {
-                appendToDisplay(key);
-            } else if (key === 'Enter') {
-                calculate();
-            } else if (key === 'Backspace') {
-                clearDisplay();
-            }
-        });
-    </script>
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 我的个人博客. All rights reserved.</p>
+    </footer>
 </body>
 </html>
